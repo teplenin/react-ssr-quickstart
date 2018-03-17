@@ -1,0 +1,28 @@
+* {
+    &,
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-size: 14px;
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+}
+
+a {
+    text-decoration: none !important;
+
+    color: #0076e3;
+    border-bottom: 1px solid;
+
+    &:hover {
+        opacity: .8;
+    }
+}

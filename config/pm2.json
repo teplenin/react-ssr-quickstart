@@ -1,0 +1,9 @@
+{
+    "apps": [{
+        "name": "react-ssr-quickstart",
+        "script": "app.js",
+        "env": {
+            "production": true
+        }
+    }]
+}
