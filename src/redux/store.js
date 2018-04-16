@@ -10,11 +10,5 @@ export default function configureStore (initialState = {}) {
         applyMiddleware(thunk)
     ))
 
-    if (process.env.NODE_ENV !== 'production' && module.hot) {
-        module.hot.accept('./modules/reducers', () => {
-            store.replaceReducer((require('./modules/reducers')))
-        })
-    }
-
     return store
 }

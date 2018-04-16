@@ -5,7 +5,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV.toLowerCase() : 'production'
-const API_VER = process.env.API_VER ? process.env.API_VER.toLowerCase() : 'production'
 
 const config = {
     mode: 'production',
@@ -15,7 +14,7 @@ const config = {
         modules: [path.resolve('src'), path.resolve('node_modules')]
     },
     entry: {
-        main: './src/client',
+        main: path.resolve('./src/client.jsx'),
         vendor: [
             'react',
             'react-dom',
@@ -169,15 +168,14 @@ const config = {
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify(NODE_ENV),
-                'API_VER': JSON.stringify(API_VER)
+                'NODE_ENV': JSON.stringify(NODE_ENV)
             }
         }),
         new ManifestPlugin({
             fileName: '../manifest.json'
         }),
         new ExtractTextPlugin({
-            filename: 'css/[name].[contenthash].css'
+            filename: 'css/[name].[hash].css'
         }),
         new CopyWebpackPlugin([
             { from: 'src/static/misc/', to: '../misc/' }

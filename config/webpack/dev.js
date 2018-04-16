@@ -2,9 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const SERVER_PORT = process.env.PORT || 8010
 const NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV.toLowerCase() : 'development'
-const API_VER = process.env.API_VER ? process.env.API_VER.toLowerCase() : 'development'
 
 const config = {
     mode: 'development',
@@ -13,12 +11,7 @@ const config = {
         extensions: ['.jsx', '.js', '.scss', '.css'],
         modules: [path.resolve('src'), path.resolve('node_modules')]
     },
-    entry: [
-        'react-hot-loader/patch',
-        `webpack-dev-server/client?http://0.0.0.0:${SERVER_PORT}`,
-        'webpack/hot/only-dev-server',
-        path.resolve('./src/client')
-    ],
+    entry: path.resolve('./src/client.jsx'),
     output: {
         publicPath: '/',
         filename: 'js/[name].js',
@@ -172,11 +165,9 @@ const config = {
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify(NODE_ENV),
-                'API_VER': JSON.stringify(API_VER)
+                'NODE_ENV': JSON.stringify(NODE_ENV)
             }
         }),
-        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/static/index.html'

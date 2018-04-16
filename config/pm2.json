@@ -3,7 +3,9 @@
         "name": "react-ssr-quickstart",
         "script": "app.js",
         "env": {
-            "production": true
+            "production": true,
+            "NODE_ENV": "production",
+            "PORT": 8080
         }
     }]
 }

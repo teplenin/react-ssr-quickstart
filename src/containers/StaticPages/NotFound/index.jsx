@@ -1,9 +1,9 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 
 import Helmet from 'react-helmet'
 import { Route } from 'react-router-dom'
 
-export default class NotFoundPageContainer extends PureComponent {
+export default class NotFoundPageContainer extends Component {
     renderContent = ({ staticContext }) => {
         if (staticContext) {
             staticContext.status = 404

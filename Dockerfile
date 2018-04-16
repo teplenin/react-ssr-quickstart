@@ -6,10 +6,6 @@ WORKDIR /tmp
 COPY . /tmp/
 RUN npm config set registry http://registry.npmjs.org/ && npm install
 
-ENV API_VER=production
-ENV NODE_ENV=production
-ENV PORT=8080
-
 RUN npm run build
 
 WORKDIR /usr/src/app

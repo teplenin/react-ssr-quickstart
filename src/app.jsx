@@ -4,10 +4,12 @@ import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
+import { hot } from 'react-hot-loader'
 
 import routes from 'routes'
 
-class App extends Component {
+@hot(module)
+export default class App extends Component {
     static propTypes = {
         store: PropTypes.object.isRequired
     }
@@ -22,5 +24,3 @@ class App extends Component {
         )
     }
 }
-
-export default App

@@ -21,7 +21,7 @@ const config = {
         extensions: ['.jsx', '.js', '.scss', '.css'],
         modules: [path.resolve('src'), path.resolve('node_modules')]
     },
-    entry: './src/server.js',
+    entry: path.resolve('./src/server.js'),
     output: {
         path: path.resolve('./build/static'),
         filename: '../app.js',
